@@ -1,0 +1,15 @@
+global:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/global.js: {}
+
+minor:
+  css:
+    theme:
+      css/minor.css: {}
+
+custom:
+  js:
+    js/custom.js: {}
