@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Bartik's theme implementation to display a node.
+ * Olivero's theme implementation to display a node.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -66,20 +66,23 @@
  * @see template_preprocess_node()
  */
 #}
+
+{% set layout = layout ? 'layout--' ~ layout|clean_class %}
+
 {%
   set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
+    layout ? 'grid-full',
+    layout ? 'ie11-autorow',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'clearfix',
   ]
 %}
-{{ attach_library('bartik/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
-  <header>
+  <header class="{{ layout }}">
     {{ title_prefix }}
       {% if label and not page %}
       <h2{{ title_attributes.addClass('node__title') }}>
@@ -89,15 +92,26 @@
     {{ title_suffix }}
     {% if display_submitted %}
       <div class="node__meta">
-        {{ author_picture }}
+      {% if author_picture %}
+        <div class="node__author-image">
+          {{ author_picture }}
+        </div>
+      {% endif %}
         <span{{ author_attributes }}>
-          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          {{ 'By'|t }} {% apply spaceless %}{{ author_name }}{% endapply %}, {{ date }}
         </span>
         {{ metadata }}
       </div>
     {% endif %}
   </header>
-  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-    {{ content }}
+  <div{{ content_attributes.addClass('node__content', layout) }}>
+    {# Comments not part of content, so they won't inherit .text-content styles.
+    #}
+    {{ content|without('comment') }}
   </div>
+  {% if content.comment %}
+    <div id="comments" class="{{ layout }}">
+      {{ content.comment }}
+    </div>
+  {% endif %}
 </article>

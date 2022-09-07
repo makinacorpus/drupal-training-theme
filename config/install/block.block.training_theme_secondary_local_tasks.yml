@@ -3,17 +3,17 @@ status: true
 dependencies:
   theme:
     - training_theme
-id: training_theme_local_tasks
+id: training_theme_secondary_local_tasks
 theme: training_theme
-region: content
-weight: -40
+region: highlighted
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: Tabs
-  provider: core
+  label: 'Secondary tabs'
   label_display: '0'
-  primary: true
+  provider: core
+  primary: false
   secondary: true
 visibility: {  }

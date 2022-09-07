@@ -7,13 +7,13 @@ dependencies:
     - training_theme
 id: training_theme_powered
 theme: training_theme
-region: footer_fifth
-weight: -7
+region: footer_bottom
+weight: -6
 provider: null
 plugin: system_powered_by_block
 settings:
   id: system_powered_by_block
   label: 'Powered by Drupal'
-  provider: system
   label_display: '0'
+  provider: system
 visibility: {  }

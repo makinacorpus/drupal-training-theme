@@ -1,15 +1,12 @@
-global:
+main:
   css:
     theme:
-      css/style.css: {}
+      src/css/main.css: {}
+      src/css/print.css: { media: print }
   js:
-    js/global.js: {}
-
-minor:
-  css:
-    theme:
-      css/minor.css: {}
-
-custom:
-  js:
-    js/custom.js: {}
+    src/js/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

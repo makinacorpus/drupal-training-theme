@@ -9,15 +9,15 @@ dependencies:
     - training_theme
 id: training_theme_account_menu
 theme: training_theme
-region: secondary_menu
-weight: 0
+region: footer_top
+weight: 1
 provider: null
 plugin: 'system_menu_block:account'
 settings:
   id: 'system_menu_block:account'
   label: 'User account menu'
+  label_display: visible
   provider: system
-  label_display: '0'
   level: 1
   depth: 1
   expand_all_items: false

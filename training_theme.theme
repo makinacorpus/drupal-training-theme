@@ -1,54 +1,56 @@
 <?php
 
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * @file
  * Functions to support theming in the training theme.
  */
 
 /**
- * Implements hook_preprocess_HOOK() for HTML document templates.
+ * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function training_theme_preprocess_html(&$variables) {
-}
-
-/**
- * Implements hook_preprocess_HOOK() for page title templates.
- */
-function training_theme_preprocess_page_title(&$variables) {
+  // dump($variables);
+  $variables['#attached']['drupalSettings']['vars']['value'] = 'Set in hook_preprocess_html';
 }
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function training_theme_preprocess_page(&$variables) {
+  // dump($variables);
 }
+
+/**
+ * Implements hook_theme_suggestion_HOOK() for page.html.twig.
+ */
+function training_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) { }
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function training_theme_preprocess_node(&$variables) {
-
+  // dump($variables);
   $node = $variables['node'];
   $type = $variables['node']->getType();
-  $view_mode  = $variables['view_mode'];
-  // \dump($variables);
-  // \dump($node);
+  $view_mode = $variables['view_mode'];
+
+  $variables['preprocess'] = 'preprocess';
 }
 
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function training_theme_preprocess_block(&$variables) {
+  // dump($variables);
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * Implements hook_preprocess_HOOK() for input.html.twig.
  */
-function training_theme_theme_suggestions_page_alter(array $variables) {
-  $suggestions = [];
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $content_type = $node->bundle();
-    $suggestions[] = \sprintf('page__%s', $content_type);
-  }
-  return $suggestions;
+function training_theme_preprocess_input(&$variables) {
+  // dump($variables);
 }

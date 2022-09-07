@@ -7,13 +7,13 @@ dependencies:
     - training_theme
 id: training_theme_help
 theme: training_theme
-region: content
-weight: -30
+region: content_above
+weight: 0
 provider: null
 plugin: help_block
 settings:
   id: help_block
   label: Help
-  provider: help
   label_display: '0'
+  provider: help
 visibility: {  }

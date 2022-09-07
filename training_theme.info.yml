@@ -1,28 +1,22 @@
 name: Training theme
 type: theme
-base theme: bartik
+base theme: olivero
 core_version_requirement: ^8 || ^9
-description: 'A training theme, inherit from Bartik.'
+description: 'A training theme, inherit from Olivero.'
 libraries:
-  - 'training_theme/global'
+  - 'training_theme/main'
 
 regions:
-  header: Header
+  header: 'Header'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
-  page_top: 'Page top'
-  page_bottom: 'Page bottom'
-  highlighted: Highlighted
-  featured_top: 'Featured top'
-  breadcrumb: Breadcrumb
-  content: Content
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
-  featured_bottom_first: 'Featured bottom first'
-  featured_bottom_second: 'Featured bottom second'
-  featured_bottom_third: 'Featured bottom third'
-  footer_first: 'Footer first'
-  footer_second: 'Footer second'
-  footer_third: 'Footer third'
-  footer_fourth: 'Footer fourth'
-  footer_fifth: 'Footer fifth'
+  hero: 'Hero (full width)'
+  highlighted: 'Highlighted'
+  breadcrumb: 'Breadcrumb'
+  social: 'Social Bar'
+  content_above: 'Content Above'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  content_below: 'Content Below'
+  footer_top: 'Footer Top'
+  footer_bottom: 'Footer Bottom'

@@ -2,22 +2,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.footer
+    - system.menu.mentions
   module:
     - system
   theme:
     - training_theme
-id: training_theme_footer
+id: training_theme_mentions
 theme: training_theme
-region: footer_fifth
-weight: -7
+region: footer_top
+weight: 0
 provider: null
-plugin: 'system_menu_block:footer'
+plugin: 'system_menu_block:mentions'
 settings:
-  id: 'system_menu_block:footer'
-  label: 'Menu footer'
+  id: 'system_menu_block:mentions'
+  label: 'Legal informations'
+  label_display: visible
   provider: system
-  label_display: '0'
   level: 1
   depth: 0
   expand_all_items: false

@@ -1,0 +1,15 @@
+.site-branding {
+  background-color: #323232;
+  background-image: none;
+}
+
+.site-header__initial,
+.sticky-header-toggle,
+span.feed-icon__icon,
+.pager__item--active {
+  background-color: #323232;
+}
+
+.site-branding__text {
+  color: #feca1b;
+}
