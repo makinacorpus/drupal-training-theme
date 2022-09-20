@@ -9,4 +9,4 @@ favicon:
   use_default: 1
 mobile_menu_all_widths: 0
 site_branding_bg_color: default
-configuration: 'My custom configuration'
+site_background_color: ''

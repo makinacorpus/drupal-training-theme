@@ -47,7 +47,7 @@
 #}
 
 <div id="page-wrapper" class="page-wrapper">
-  <div id="page">
+  <div id="page-pokemon">
 
     {% if page.header or page.primary_menu or page.secondary_menu %}
       <header id="header" class="site-header" data-drupal-selector="site-header" role="banner">
@@ -90,32 +90,31 @@
     {% endif %}
 
     <div id="main-wrapper" class="layout-main-wrapper layout-container">
+
       <div id="main" class="layout-main">
+
         <div class="main-content">
           <a id="main-content" tabindex="-1"></a>
+
+          {# Navbar pokedex #}
+          <nav id="pokedex" class="navbar bg-light">
+            <div class="container-fluid">
+              <a href="" class="navbar-brand">{{ 'Previous pokemon'|trans }}</a>
+              <a href="" class="navbar-brand d-flex">{{ 'Next pokemon'|trans}}</a>
+            </div>
+          </nav>
+
           <div class="main-content__container container">
+
             {{ page.highlighted }}
             {{ page.breadcrumb }}
 
-            {% if page.sidebar %}
-              <div class="sidebar-grid grid-full">
-                <main role="main" class="site-main ie11-autorow">
-                  {{ page.content_above }}
-                  {{ page.content }}
-                </main>
+            <main role="main">
+              {{ page.content_above }}
+              {{ page.content }}
+            </main>
 
-                {{ page.sidebar }}
-              </div>
-            {% else %}
-              <main role="main">
-                {{ page.content_above }}
-                {{ page.content }}
-              </main>
-            {% endif %}
           </div>
-        </div>
-        <div class="social-bar">
-          {{ page.social }}
         </div>
       </div>
     </div>

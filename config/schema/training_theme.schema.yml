@@ -1,0 +1,26 @@
+# Schema for the configuration files of the Olivero theme.
+
+training_theme.settings:
+  type: theme_settings
+  label: 'Training theme settings'
+  mapping:
+    third_party_settings:
+      type: mapping
+      label: 'Third party settings'
+      mapping:
+        shortcut:
+          type: mapping
+          label: 'Shortcut'
+          mapping:
+            module_link:
+              type: boolean
+              label: 'Module Link'
+    mobile_menu_all_widths:
+      type: integer
+      label: "Mobile menu all widths"
+    site_branding_bg_color:
+      type: string
+      label: "Site branding background color"
+    site_background_color:
+      type: string
+      label: "Site main background color"

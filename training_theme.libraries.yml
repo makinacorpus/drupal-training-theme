@@ -2,6 +2,7 @@ main:
   css:
     theme:
       src/css/main.css: {}
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css': { type: external, minified: true }
       src/css/print.css: { media: print }
   js:
     src/js/script.js: {}
@@ -10,3 +11,10 @@ main:
     - core/drupal
     - core/drupalSettings
     - core/once
+
+pokemon:
+  js:
+    src/js/pokemon.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

@@ -11,6 +11,100 @@ span.feed-icon__icon,
 }
 .site-branding__text {
   color: #feca1b;
+}.site-branding__name a:hover{
+  color: #e53935;
+}
+div.site-header__inner__container {
+  margin-left: 0px;
+}
+
+
+/* Background */
+div.dialog-off-canvas-main-canvas.red {
+  background-color: #e53935;
+}
+div.dialog-off-canvas-main-canvas.blue {
+  background-color: #66b0f9;
+}
+div.dialog-off-canvas-main-canvas.grey {
+  background-color: #e3e3e3;
+}
+
+/* Layout */
+#page-pokemon .main-content {
+  width: 100%;
+}
+/* Navbar */
+nav#pokedex {
+  height: 150px;
+}
+nav#pokedex div.container-fluid {
+  margin: 50px;
+}
+/* Field version */
+div.version {
+  margin-top: 20px;
+}
+div.version span {
+  margin-right: 10px;
+}
+/* Card */
+div.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+article.node--type-pokemon.node--view-mode-teaser div.card {
+  width: 18rem;
+}
+div.field--name-field-generation {
+  margin-bottom: 50px;
+}
+div.field--name-field-evolutions {
+  margin-top: 50px;
+}
+
+/* Background */
+div.dialog-off-canvas-main-canvas.red {
+  background-color: #e53935;
+}
+div.dialog-off-canvas-main-canvas.blue {
+  background-color: #66b0f9;
+}
+div.dialog-off-canvas-main-canvas.grey {
+  background-color: #e3e3e3;
+}
+
+/* Layout */
+#page-pokemon .main-content {
+  width: 100%;
+}
+/* Navbar */
+nav#pokedex {
+  height: 150px;
+}
+nav#pokedex div.container-fluid {
+  margin: 50px;
+}
+/* Field version */
+div.version {
+  margin-top: 20px;
+}
+div.version span {
+  margin-right: 10px;
+}
+/* Card */
+div.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+article.node--type-pokemon.node--view-mode-teaser div.card {
+  width: 18rem;
+}
+div.field--name-field-generation {
+  margin-bottom: 50px;
+}
+div.field--name-field-evolutions {
+  margin-top: 50px;
 }
 .site-branding__name a:hover{
   color: #e53935;

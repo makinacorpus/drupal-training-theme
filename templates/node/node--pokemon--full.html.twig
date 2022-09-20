@@ -81,30 +81,65 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
+
+<h1{{ title_attributes.addClass('title text-center') }}>
+  {{ title }}
+</h1>
 <article{{ attributes.addClass(classes) }}>
-  <header class="{{ layout }}">
-    {{ title_prefix }}
-      {% if label and not page %}
-      <h2{{ title_attributes.addClass('node__title') }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% if display_submitted %}
-      <div class="node__meta">
-      {% if author_picture %}
-        <div class="node__author-image">
-          {{ author_picture }}
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    <div class="text-center">{{ content.field_generation }}</div>
+    <div class="row">
+      {% if content.field_featured_media %}
+        <div class="col-xs-12 col-sm-6">
+          {{ content.field_featured_media }}
         </div>
       {% endif %}
-        <span{{ author_attributes }}>
-          {{ 'By'|t }} {% apply spaceless %}{{ author_name }}{% endapply %}, {{ date }}
-        </span>
-        {{ metadata }}
+      <div class="col-xs-12 col-sm-6">
+        {% if content.field_blue or content.field_red %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ 'Capacities'|trans }}</h5>
+              <div >{{ content.field_blue }}</div>
+              <div>{{ content.field_red }}</div>
+              <div class="version">
+                <span>Versions :</span>
+                <button id="blue" type="button" class="btn btn-primary card-link">{{ 'Blue'|trans }}</button>
+                <button id="red" type="button" class="btn btn-danger card-link">{{ 'Red'|trans }}</button>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% if content.field_types %}
+          <div class="card text-bg-info">
+            <div class="card-body">
+              <h5 class="card-title">{{ 'Types'|trans }}</h5>
+              {{ content.field_types }}
+            </div>
+          </div>
+        {% endif %}
+        {% if content.field_weaknesses %}
+          <div class="card text-bg-warning">
+            <div class="card-body">
+              <h5 class="card-title">{{ 'Weaknesses'|trans }}</h5>
+              {{ content.field_weaknesses }}
+            </div>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
-  </header>
-  <div{{ content_attributes.addClass('node__content', layout) }}>
-    {{ content }}
+    </div>
+    {# {% if content.field_evolutions %}
+      <div class="row">
+        <div class="d-flex justify-content-evenly">
+          {% for key,content in content.field_evolutions %}
+            {% if not (key starts with '#') %}
+              {{ content }}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %} #}
+    <div class="row">
+      {{ content.field_evolutions }}
+    </div>
   </div>
 </article>

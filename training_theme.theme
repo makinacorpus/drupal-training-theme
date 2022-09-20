@@ -10,47 +10,54 @@ use Drupal\Core\Form\FormStateInterface;
  */
 
 /**
- * Implements hook_preprocess_HOOK() for html.html.twig.
+ * Implements hook_theme_suggestion_HOOK() for page.html.twig.
  */
-function training_theme_preprocess_html(&$variables) {
-  // dump($variables);
-  $variables['#attached']['drupalSettings']['vars']['value'] = 'Set in hook_preprocess_html';
-}
-
-/**
- * Implements hook_preprocess_HOOK() for page.html.twig.
- */
-function training_theme_preprocess_page(&$variables) {
-  // dump($variables);
+function training_theme_preprocess_off_canvas_page_wrapper(array &$variables) {
+  if (theme_get_setting('site_background_color')) {
+    $variables['background'] = theme_get_setting('site_background_color');
+  }
 }
 
 /**
  * Implements hook_theme_suggestion_HOOK() for page.html.twig.
  */
-function training_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) { }
+function training_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $contentType = $node->bundle();
+    $suggestions[] = \sprintf('page__%s', $contentType);
+  }
+}
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function training_theme_preprocess_node(&$variables) {
-  // dump($variables);
   $node = $variables['node'];
   $type = $variables['node']->getType();
-  $view_mode = $variables['view_mode'];
 
-  $variables['preprocess'] = 'preprocess';
+  if ('pokemon' === $type) {
+
+    if (!$node->get('field_id')->isEmpty()) {
+      $pokedexId = $node->get('field_id')->first()->getValue();
+      $variables['title'] = \sprintf('%s #%s', $node->label(), $pokedexId['value']);
+    }
+
+    if ('full' === $variables['view_mode']) {
+      $variables['#attached']['library'][] = 'training_theme/pokemon';
+    }
+  }
 }
 
 /**
- * Implements hook_preprocess_HOOK() for block.html.twig.
+ * Implements hook_preprocess_HOOK() for field.html.twig.
  */
-function training_theme_preprocess_block(&$variables) {
-  // dump($variables);
-}
-
-/**
- * Implements hook_preprocess_HOOK() for input.html.twig.
- */
-function training_theme_preprocess_input(&$variables) {
-  // dump($variables);
+function training_theme_preprocess_field(&$variables) {
+  if (
+    'pokemon' === $variables['element']['#bundle'] &&
+    'field_evolutions' === $variables['element']['#field_name'] &&
+    'full' === $variables['element']['#view_mode']
+  ) {
+    $variables['attributes']['class'][] = 'd-flex';
+    $variables['attributes']['class'][] = 'justify-content-evenly';
+  }
 }
